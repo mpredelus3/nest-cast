@@ -1,29 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NestCast</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/home.css">
 </head>
+
 <body>
-    <header>
-
+    <header class="hero is-primary is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    NestCast
+                </h1>
+            </div>
+        </div>
     </header>
-    <hr>
-    <section>
-        <h1>Choose your region</h1>
 
-        <!-- Dropdown Box -->
-        <select id="region">
-            <option value=>Northeast</option>
-            <option value=>Southeast</option>
-            <option value=>Southwest</option>
-            <option value=>Midwest</option>
-            <option value=>West</option>
-        </select>
-    </section>
-    <script src="./assets/js/home.js"></script>
-    <hr>
-</body>
+    <body>
+        <section class="section">
+            <div class="container">
+                <h1 class="title">Search Parks by State Code</h1>
+                <div class="field has-addons">
+                    <div class="control is-expanded">
+                        <input class="input" type="text" id="stateInput" placeholder="Enter a US state code (e.g., CA, NY)">
+                    </div>
+                    <div class="control">
+                        <button class="button is-info" onclick="fetchParks()">Search Parks</button>
+                    </div>
+                </div>
+        
+                <div id="parkList">
+                    <h2 class="title is-4">Parks in Selected State</h2>
+                    <ul id="parks"></ul>
+                </div>
+        
+                <div class="pagination is-centered" style="margin-top: 20px;">
+                    <button class="button" id="prevPage" disabled>&lt; Prev</button>
+                    <button class="button" id="nextPage" disabled>Next &gt;</button>
+                </div>
+            </div>
+        </section>
+        <script src="./assets/js/landing.js"></script>
+        <script src="./assets/js/home.js"></script>
+        <hr>
+    </body>
+
 </html>
