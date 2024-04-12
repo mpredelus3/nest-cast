@@ -3,6 +3,7 @@ const API_KEY = 'U0SqW35wEiSrMcVOGMHfmtu2p4WMQaJgZZU6rAG1';
 const urlParams = new URLSearchParams(window.location.search);
 // Extract park code from URL parameters
 const parkCode = urlParams.get('parkCode');
+const weatherApiKey = '58d09628a194f1e8f1ecf12b1d580c14'
 
 // Fetch park details using park code
 fetch(`https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=${API_KEY}`)
@@ -22,7 +23,36 @@ fetch(`https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=${API
                     <!-- Add more details as needed -->
                 `;
         parkDetailsDiv.appendChild(parkDetailsBlock);
+
+        fetchWeather(park.latitude, park.longitude);
     })
     .catch(error => {
         console.error('Error fetching park data:', error);
     });
+
+    function fetchWeather(lat,lon) {
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=imperial`)
+        .then(response => response.json())
+        .then(weather => {
+            displayWeatherDetails(weather);
+        })
+        .catch(error => {
+            console.error('Error fetching weather data:', error)
+        });
+    }
+
+    function displayWeatherDetails(weather) {
+        const weatherDetailsDiv = document.getElementById("weatherDetails");
+        const weatherDetailsBlock = document.createElement("div");
+        if (weather.main && weather.weather && weather.weather.length > 0) {
+            weatherDetailsBlock.innerHTML = `
+                <h4>Current Weather:</h4>
+                <p>Temperature: ${weather.main.temp} °F</p>
+                <p>Weather: ${weather.weather[0].main} (${weather.weather[0].description})</p>
+            `;
+        } else {
+            weatherDetailsBlock.textContent = "Weather data not available.";
+        }
+    
+    weatherDetailsDiv.appendChild(weatherDetailsBlock);
+    }
