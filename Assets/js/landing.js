@@ -3,7 +3,7 @@ const API_KEY = 'U0SqW35wEiSrMcVOGMHfmtu2p4WMQaJgZZU6rAG1';
 const urlParams = new URLSearchParams(window.location.search);
 // Extract park code from URL parameters
 const parkCode = urlParams.get('parkCode');
-const weatherApi = 'https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=imperial'
+const weatherApiKey = '58d09628a194f1e8f1ecf12b1d580c14'
 
 // Fetch park details using park code
 fetch(`https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=${API_KEY}`)
@@ -31,7 +31,7 @@ fetch(`https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=${API
     });
 
     function fetchWeather(lat,lon) {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherApi}&units=imperial`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=imperial`)
         .then(response => response.json())
         .then(weather => {
             displayWeatherDetails(weather);
