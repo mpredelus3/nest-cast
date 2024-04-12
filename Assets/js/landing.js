@@ -14,7 +14,7 @@ fetch(`https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=${API
         const parkDetailsDiv = document.getElementById("parkDetails");
         const parkDetailsBlock = document.createElement("div");
         parkDetailsBlock.innerHTML = `
-                    <h2>${park.fullName}</h2>
+                    <h1>${park.fullName}</h1>
                     <p><strong>Directions Info:</strong> ${park.directionsInfo}</p>
                     <p><strong>Address:</strong> ${park.addresses[0].line1}, ${park.addresses[0].city}, ${park.addresses[0].stateCode} ${park.addresses[0].postalCode}</p>
 

@@ -1,23 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parks Page</title>
-    <link rel="stylesheet" href="./Assets/css/landing.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/landing.css">
 </head>
+
 <body>
-    <nav class="back">
-        <button><a href="home.html">Back</a></button>
-     </nav>
-  <div id="parkDetails">
-    <!-- Park details will be populated here -->
-</div>
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="home.html">
+                Back
+            </a>
+        </div>
+    </nav>
 
-<div id="weatherDetails">
-    <!-- weather details will populate here -->
-</div>
+    <section class="section">
+        <div class="container">
+            <div id="parkDetails" class="box">
+                <!-- Park details will be populated here -->
+            </div>
+            <div id="weatherDetails" class="box">
+                <!-- weather details will populate here -->
+        </div>
+        
+        </div>
+    </section>
 
-    <script src="./Assets/js/landing.js"></script>
+    <script src="./assets/js/landing.js"></script>
 </body>
+
 </html>
