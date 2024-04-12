@@ -28,7 +28,7 @@ function fetchParks() {
           const listItem = document.createElement("li");
           const parkLink = document.createElement("a");
           parkLink.textContent = park.fullName;
-          parkLink.href = "landing.html";
+          parkLink.href = `landing.html?parkCode=${park.parkCode}`;
           listItem.appendChild(parkLink);
           parkList.appendChild(listItem);
       });
