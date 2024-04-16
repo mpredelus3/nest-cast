@@ -1,0 +1,25 @@
+#parkList {
+    background-color: blanchedalmond;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#parks li {
+    margin-bottom: 5px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#parks li a {
+    color: #333;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+#parks li a:hover {
+    background-color: #e6e6e6;
+}

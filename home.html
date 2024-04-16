@@ -16,6 +16,9 @@
                 <h1 class="title">
                     NestCast
                 </h1>
+                <h2 class="subtitle">
+                    Explore National Parks across the US
+                </h2>
             </div>
         </div>
     </header>
@@ -23,27 +26,44 @@
     <body>
         <section class="section">
             <div class="container">
-                <h1 class="title">Search Parks by State Code</h1>
-                <div class="field has-addons">
-                    <div class="control is-expanded">
-                        <input class="input" type="text" id="stateInput" placeholder="Enter a US state code (e.g., CA, NY)">
-                    </div>
-                    <div class="control">
-                        <button class="button is-info" onclick="fetchParks()">Search Parks</button>
+                <div class="columns is-centered">
+                    <div class="column is-half">
+                        <h1 class="title has-text-centered">Search Parks by State Code</h1>
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <input class="input" type="text" id="stateInput"
+                                    placeholder="Enter a US state code (e.g., CA, NY)">
+                            </div>
+                            <div class="control">
+                                <button class="button is-info" onclick="fetchParks()">Search Parks</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-        
-                <div id="parkList">
+
+                <div id="parkList" class="mt-4">
                     <h2 class="title is-4">Parks in Selected State</h2>
-                    <ul id="parks"></ul>
+                    <div class="list is-hoverable">
+                        <ul id="parks">
+                            <!-- parks populate here-->
+                        </ul>
+                    </div>
                 </div>
-        
+
                 <div class="pagination is-centered" style="margin-top: 20px;">
                     <button class="button" id="prevPage" disabled>&lt; Prev</button>
                     <button class="button" id="nextPage" disabled>Next &gt;</button>
                 </div>
             </div>
         </section>
+
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p>
+                    NestCast. All Rights Reserved.
+                </p>
+            </div>
+        </footer>
         <script src="./assets/js/home.js"></script>
         <hr>
     </body>
