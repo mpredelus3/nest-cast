@@ -27,6 +27,7 @@ fetch(`https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=${API
         fetchParkImages(park.parkCode);
         fetchWeatherForecast(park.latitude, park.longitude);
     })
+    // error message if the api doesn't connect
     .catch(error => {
         console.error('Error fetching park data:', error);
     });
@@ -47,6 +48,7 @@ function fetchParkImages(parkCode) {
 
 }
 
+// displays images of the park
 function displayParkImages(images) {
     const imageContainer = document.getElementById("parkImages");
     images.forEach(image => {
