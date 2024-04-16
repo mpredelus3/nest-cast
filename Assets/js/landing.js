@@ -25,7 +25,7 @@ fetch(`https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=${API
         parkDetailsDiv.appendChild(parkDetailsBlock);
 
         fetchParkImages(park.parkCode);
-        fetchWeather(park.latitude, park.longitude);
+        fetchWeatherForecast(park.latitude, park.longitude);
     })
     .catch(error => {
         console.error('Error fetching park data:', error);
@@ -67,29 +67,32 @@ function displayParkImages(images) {
     })
 }
 
-function fetchWeather(lat, lon) {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=imperial`)
+function fetchWeatherForecast(lat, lon) {
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=imperial`)
         .then(response => response.json())
-        .then(weather => {
-            displayWeatherDetails(weather);
+        .then(forecast => {
+            displayWeatherForecast(forecast);
         })
         .catch(error => {
             console.error('Error fetching weather data:', error)
         });
 }
 
-function displayWeatherDetails(weather) {
-    const weatherDetailsDiv = document.getElementById("weatherDetails");
-    const weatherDetailsBlock = document.createElement("div");
-    if (weather.main && weather.weather && weather.weather.length > 0) {
-        weatherDetailsBlock.innerHTML = `
-                <h4 class="title">Current Weather:</h4>
-                <p><strong>Temperature:</strong> ${weather.main.temp} °F</p>
-                <p><strong>Weather:</strong> ${weather.weather[0].main} (${weather.weather[0].description})</p>
-            `;
-    } else {
-        weatherDetailsBlock.textContent = "Weather data not available.";
-    }
+function displayWeatherForecast(forecast) {
+    const weatherForecastDiv = document.getElementById("weatherForecast");
+    weatherForecastDiv.innerHTML = "";
 
-    weatherDetailsDiv.appendChild(weatherDetailsBlock);
+    for (let i = 0; i < forecast.list.length; i += 8) {
+        const forecastData = forecast.list[i];
+
+        const forecastDate = new Date(forecastData.dt * 1000);
+
+        const forecastDetailsBlock = document.createElement("div");
+        forecastDetailsBlock.innerHTML = `
+        <h4 class="title">Forecast for ${forecastDate.toDateString()}:</h4>
+        <p><strong>Temperature:</strong> ${forecastData.main.temp} °F</p>
+        <p><strong>Weather:</strong> ${forecastData.weather[0].main} (${forecastData.weather[0].description})</p>
+    `;
+    weatherForecastDiv.appendChild(forecastDetailsBlock);
+    }   
 }
