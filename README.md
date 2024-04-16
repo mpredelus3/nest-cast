@@ -21,3 +21,11 @@ Bulma. (accessed 2024, April 8th-16th) https://bulma.io/
 Openweather. (2012-2024) Openweather API. https://openweathermap.org/
 
 National Park Service. (accessed 2024, April 8th-16th) https://www.nps.gov/subjects/digital/nps-data-api.htm
+
+## Deployed Site
+
+https://mpredelus3.github.io/nest-cast/
+
+![alt text](./assets/image.png)
+
+![alt text](./assets/NestCast.png)
