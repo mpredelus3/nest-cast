@@ -16,10 +16,10 @@ fetch(`https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=${API
         parkDetailsBlock.innerHTML = `
                     <h1 class="title">${park.fullName}</h1>
                     <p><strong>Directions Info:</strong> ${park.directionsInfo}</p>
+                    <p><strong>Park Description:</strong> ${park.description}</p>
                     <p><strong>Address:</strong> ${park.addresses[0].line1}, ${park.addresses[0].city}, ${park.addresses[0].stateCode} ${park.addresses[0].postalCode}</p>
 
                     <p><strong>Latitude:</strong> ${park.latitude}, <strong>Longitude:</strong> ${park.longitude}</p>
-                    <p><strong>Weather Info:</strong> ${park.weatherInfo}</p>
                     <!-- Add more details as needed -->
                 `;
         parkDetailsDiv.appendChild(parkDetailsBlock);
