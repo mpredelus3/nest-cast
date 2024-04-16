@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parks Page</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/landing.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 </head>
 
 <body>
@@ -20,15 +20,30 @@
 
     <section class="section">
         <div class="container">
-            <div id="parkDetails" class="box">
-                <!-- Park details will be populated here -->
+            <div class="columns">
+                <div class="column is-three-quarters">
+                    <div id="parkDetails" class="box">
+                        <h1 class="title is-4"></h1>
+                        <!-- Park details will be populated here -->
+                    </div>
+                    <div id="weatherDetails" class="box">
+                        <h1 class="title is-4"></h1>
+                        <!-- weather details will populate here -->
+                    </div>
+                </div>
             </div>
-            <div id="weatherDetails" class="box">
-                <!-- weather details will populate here -->
-        </div>
-        
+            <div id="parkImages"></div>
+
         </div>
     </section>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                NestCast. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
 
     <script src="./assets/js/landing.js"></script>
 </body>
