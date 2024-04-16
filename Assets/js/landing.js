@@ -27,6 +27,7 @@ fetch(`https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=${API
         fetchParkImages(park.parkCode);
         fetchWeather(park.latitude, park.longitude);
     })
+    // error message if the api doesn't connect
     .catch(error => {
         console.error('Error fetching park data:', error);
     });
@@ -47,6 +48,7 @@ function fetchParkImages(parkCode) {
 
 }
 
+// displays images of the park
 function displayParkImages(images) {
     const imageContainer = document.getElementById("parkImages");
     images.forEach(image => {
@@ -67,6 +69,7 @@ function displayParkImages(images) {
     })
 }
 
+// pulls the weather info from the openweather api
 function fetchWeather(lat, lon) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=imperial`)
         .then(response => response.json())
@@ -78,6 +81,7 @@ function fetchWeather(lat, lon) {
         });
 }
 
+// appends the weather info to the page
 function displayWeatherDetails(weather) {
     const weatherDetailsDiv = document.getElementById("weatherDetails");
     const weatherDetailsBlock = document.createElement("div");
