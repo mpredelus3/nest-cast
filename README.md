@@ -24,7 +24,7 @@ National Park Service. (accessed 2024, April 8th-16th) https://www.nps.gov/subje
 
 ## Deployed Site
 
-https://mpredelus3.github.io/nest-cast/
+https://mpredelus3.github.io/nest-cast/home.html
 
 ![alt text](./assets/image.png)
 
